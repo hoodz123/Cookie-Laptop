@@ -1,6 +1,6 @@
 local QBCore = exports['qb-core']:GetCoreObject()
 
-RegisterNetEvent('mt-clothingbag:client:PousarMala', function()
+RegisterNetEvent('cookie-laptop:client:PousarMala', function()
     QBCore.Functions.Progressbar('name_here', 'PUTTING LAPTOP ON FLOOR...', 2000, false, true, {
         disableMovement = true,
         disableCarMovement = true,
@@ -12,12 +12,12 @@ RegisterNetEvent('mt-clothingbag:client:PousarMala', function()
         flags = 16,
     }, {}, {}, function()
         ClearPedTasks(PlayerPedId())
-        TriggerEvent('mt-clothingbag:client:SpawnMala')
+        TriggerEvent('cookie-laptop:client:SpawnMala')
 		exports['okokNotify']:Alert("HackMaster Activated", "Please Step Back From The Laptop", 3500, "success")
     end)
 end)
 
-RegisterNetEvent('mt-clothingbag:client:SpawnMala', function()
+RegisterNetEvent('cookie-laptop:client:SpawnMala', function()
     local playerPed = PlayerPedId()
     local coords    = GetEntityCoords(playerPed)
     local forward   = GetEntityForwardVector(playerPed)
@@ -34,10 +34,10 @@ RegisterNetEvent('mt-clothingbag:client:SpawnMala', function()
 
     Wait(500)
 
-    TriggerEvent('mt-clothingbag:client:AbrirMala', obj)
+    TriggerEvent('cookie-laptop:client:AbrirMala', obj)
 end)
 
-RegisterNetEvent('mt-clothingbag:client:AbrirMala', function(obj)
+RegisterNetEvent('cookie-laptop:client:AbrirMala', function(obj)
     QBCore.Functions.Progressbar('name_here', 'Hacking InTo JDSports...', 5000, false, true, {
         disableMovement = true,
         disableCarMovement = true,
@@ -49,7 +49,7 @@ RegisterNetEvent('mt-clothingbag:client:AbrirMala', function(obj)
         flags = 16,
     }, {}, {}, function()
         ClearPedTasks(PlayerPedId())
-        TriggerEvent('mt-clothingbag:client:ProgressDespawnMala', obj)
+        TriggerEvent('cookie-laptop:client:ProgressDespawnMala', obj)
 		exports['okokNotify']:Alert("Portable Menu Will Be", "Activated", 3500, "info")
     end)
 end)
@@ -63,7 +63,7 @@ if success then
     end
 end)
 
-RegisterNetEvent('mt-clothingbag:client:ProgressDespawnMala', function(obj)
+RegisterNetEvent('cookie-laptop:client:ProgressDespawnMala', function(obj)
     QBCore.Functions.Progressbar('name_here', 'Hacking Past Vpn...', 2000, false, true, {
         disableMovement = true,
         disableCarMovement = true,
@@ -87,14 +87,14 @@ RegisterNetEvent('mt-clothingbag:client:ProgressDespawnMala', function(obj)
             anim = 'pickup_low',
             flags = 16,
         }, {}, {}, function()
-            TriggerEvent('mt-clothingbag:client:DespawnMala', obj)
+            TriggerEvent('cookie-laptop:client:DespawnMala', obj)
         end)
     end)
 end)
 
-RegisterNetEvent('mt-clothingbag:client:DespawnMala', function(obj)
+RegisterNetEvent('cookie-laptop:client:DespawnMala', function(obj)
     DeleteObject(obj)
-    TriggerServerEvent('mt-clothingbag:server:RemoverMala')
+    TriggerServerEvent('cookie-laptop:server:RemoverMala')
     TriggerEvent('mt-clothing:client:AbrirMenu')
 	exports['okokNotify']:Alert("Hack Chip Has Now Been Registered", "COMPLETE THE HACK", 3500, "info")
 end)
